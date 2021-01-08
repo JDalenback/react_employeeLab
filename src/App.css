@@ -4,6 +4,17 @@
   box-sizing: border-box;
 }
 
+h1 {
+  margin: 10px;
+}
+#add-employee-btn {
+  margin: 10px;
+}
+
+form {
+  margin: 10px;
+}
+
 .employee-list {
   width: 60%;
   min-height: 250px;

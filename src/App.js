@@ -7,9 +7,9 @@ import EmployeeForm from './components/EmployeeForm';
 function App() {
   const [employees, setEmployees] = useState([
     {id: 1,
-    name: "Johannes",
-    email: "info@johannesdalenback.com",
-    phone: "0709608153",
+    name: "John Doe",
+    email: "john@doe.com",
+    phone: "09876543321",
     skills: "html, css, javascript, java",
     avatar: "https://i.imgur.com/Q9qFt3m.png"}]);
 

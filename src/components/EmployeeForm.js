@@ -35,19 +35,44 @@ const EmployeeForm = ({ props, employees, setEmployees }) => {
       <h1>Employee Information</h1>
       <form id="employee-form" onSubmit={formSubmitHandler}>
         <label htmlFor="employee-name">Name</label>
-        <input id="employee-name" name="employee-name" type="text"></input>
+        <input
+          id="employee-name"
+          name="employee-name"
+          type="text"
+          required
+        ></input>
 
         <label htmlFor="employee-email">Email</label>
-        <input id="employee-email" name="employee-email" type="text"></input>
+        <input
+          id="employee-email"
+          name="employee-email"
+          type="email"
+          required
+        ></input>
 
         <label htmlFor="employee-phone">Phone</label>
-        <input id="employee-phone" name="employee-phone" type="text"></input>
+        <input
+          id="employee-phone"
+          name="employee-phone"
+          type="text"
+          required
+        ></input>
 
         <label htmlFor="employee-skills">Skills</label>
-        <input id="employee-skills" name="employee-skills" type="text"></input>
+        <input
+          id="employee-skills"
+          name="employee-skills"
+          type="text"
+          required
+        ></input>
 
         <label htmlFor="employee-avatar">Avatar</label>
-        <input id="employee-avatar" name="employee-avatar" type="text"></input>
+        <input
+          id="employee-avatar"
+          name="employee-avatar"
+          type="text"
+          required
+        ></input>
 
         <button type="submit">Submit</button>
       </form>
