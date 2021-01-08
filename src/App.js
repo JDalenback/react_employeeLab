@@ -1,25 +1,48 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import EmployeeList from './components/EmployeeList';
+import EmployeeForm from './components/EmployeeForm';
 
 function App() {
+  const [employees, setEmployees] = useState([
+    {id: 1,
+    name: "Johannes",
+    email: "info@johannesdalenback.com",
+    phone: "0709608153",
+    skills: "html, css, javascript, java",
+    avatar: "https://i.imgur.com/Q9qFt3m.png"}]);
+
+    useEffect(() => {
+      if(localStorage.length > 0){
+        let employeesFromLocalStorage = []
+        for(var i=0; i<localStorage.length; i++) {
+          let key = localStorage.key( i );
+          let item = localStorage.getItem( key );
+          employeesFromLocalStorage.push(JSON.parse(item));
+        }
+        setEmployees(() => {
+          return [...employeesFromLocalStorage];
+        });
+      }
+    }, []);
+
+    useEffect(() => {
+      employees.map((employee) => {
+        return localStorage.setItem(employee.id, JSON.stringify(employee));
+      });
+    }, [employees]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <Router>
+  <div className="App">
+    <Switch>
+      <Route path="/" exact render = {() => <EmployeeList employees={employees} setEmployees={setEmployees}/>} />
+      <Route path="/form/:id" render={ (props) => <EmployeeForm props={props} employees={employees} setEmployees={setEmployees}/>} />
+    </Switch>
+  </div>
+  </Router>
+  )
 }
 
 export default App;
