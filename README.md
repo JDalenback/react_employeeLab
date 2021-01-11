@@ -1,5 +1,5 @@
 Simple react project that adds employees to a list using hooks and a form.
-Add image URL to avatar field in the form to add your won image to the employee.
+Add image URL to avatar field in the form to add your own image to the employee.
 
 
 # Getting Started with Create React App
